@@ -1,4 +1,4 @@
-package telran.java2022.forum.dto;
+package telran.java2022.post.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -7,12 +7,11 @@ import java.util.List;
 
 @Getter
 @Builder
-public class PostUpdateDto {
+public class PostAddDto {
+    String id;
     String title;
-
-    List<String> tags;
-
     String content;
+    List<String> tags;
 
 
 }

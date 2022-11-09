@@ -1,16 +1,16 @@
-package telran.java2022.forum.service;
+package telran.java2022.post.service;
 
-import telran.java2022.forum.dto.CommentDto;
-import telran.java2022.forum.dto.PostAddDto;
-import telran.java2022.forum.dto.PostDto;
-import telran.java2022.forum.dto.PostUpdateDto;
+import telran.java2022.post.dto.CommentDto;
+import telran.java2022.post.dto.PostAddDto;
+import telran.java2022.post.dto.PostDto;
+import telran.java2022.post.dto.PostUpdateDto;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PostService {
 
-PostDto addPost(PostAddDto postAddDto);
+PostDto addPost(PostAddDto postAddDto, String author);
 
 PostDto findPostById(Integer id);
 

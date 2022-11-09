@@ -1,7 +1,10 @@
-package telran.java2022.forum.model;
+package telran.java2022.post.model;
 
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
@@ -10,10 +13,11 @@ import java.util.List;
 @Getter
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
+//@Document(collection = "forum")
 
 public class Post {
     @Id
-    int id;
+    String id;
 
     @Setter
     String title;
@@ -21,22 +25,23 @@ public class Post {
     @Setter
     String content;
 
+    @Setter
     String author;
-    LocalDateTime dateCreated;
+    LocalDateTime dateCreated = LocalDateTime.now();
     @Setter
     List<String> tags;
-    Integer likes;
+    Integer likes = 0;
     List<String> comments;
 
 
-    public Post(int id, String title, String content, String author, LocalDateTime dateCreated, List<String> tags, Integer likes, List<String> comments) {
+    public Post(String id, String title, String content, String author, LocalDateTime dateCreated, List<String> tags, Integer likes, List<String> comments) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
         this.dateCreated = dateCreated;
         this.tags = tags;
-        this.likes = likes;
+//        this.likes = likes;
         this.comments = comments;
     }
 

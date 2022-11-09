@@ -5,15 +5,12 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import telran.java2022.post.dao.PostRepository;
-import telran.java2022.post.dto.CommentDto;
-import telran.java2022.post.dto.PostAddDto;
-import telran.java2022.post.dto.PostDto;
-import telran.java2022.post.dto.PostUpdateDto;
+import telran.java2022.post.dto.*;
+import telran.java2022.post.dto.exceptions.NotAvailableException;
 import telran.java2022.post.dto.exceptions.PostNotFoundException;
 import telran.java2022.post.model.Comment;
 import telran.java2022.post.model.Post;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,12 +87,23 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> findPostsByPeriod(LocalDateTime from, LocalDateTime to) {
-        return null;
+    public List<PostDto> findPostsByPeriod(DateDto dateDto) {
+        throw  new NotAvailableException();
+        //Will be available in the next version :)
+//        return null;
     }
 
     @Override
-    public PostDto updatePost(PostUpdateDto postUpdateDto) {
-        return null;
+    public PostDto updatePost(String id, PostUpdateDto postUpdateDto) {
+        Post post = postRepository.findById(id).orElse(null);
+        if (post==null){
+            return null;
+        }
+        post.setTitle(postUpdateDto.getTitle());
+        post.setTags(postUpdateDto.getTags());
+        post.setContent(post.getContent());
+        postRepository.save(post);
+        return  modelMapper.map(post, PostDto.class);
+
     }
 }

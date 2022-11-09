@@ -1,11 +1,7 @@
 package telran.java2022.post.service;
 
-import telran.java2022.post.dto.CommentDto;
-import telran.java2022.post.dto.PostAddDto;
-import telran.java2022.post.dto.PostDto;
-import telran.java2022.post.dto.PostUpdateDto;
+import telran.java2022.post.dto.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PostService {
@@ -24,9 +20,9 @@ PostDto deletePost(String id);
 
 List<PostDto> findPostsByTags(List<String> tags);
 
-List<PostDto> findPostsByPeriod(LocalDateTime from, LocalDateTime to);
+List<PostDto> findPostsByPeriod(DateDto dateDto);
 
-PostDto updatePost(PostUpdateDto postUpdateDto);
+PostDto updatePost(String id, PostUpdateDto postUpdateDto);
 
 
 

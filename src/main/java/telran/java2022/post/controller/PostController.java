@@ -3,9 +3,7 @@ package telran.java2022.post.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import telran.java2022.post.dto.CommentDto;
-import telran.java2022.post.dto.PostAddDto;
-import telran.java2022.post.dto.PostDto;
+import telran.java2022.post.dto.*;
 import telran.java2022.post.service.PostService;
 
 import java.util.List;
@@ -54,12 +52,19 @@ public class PostController {
     public List<PostDto> findPostsByTags(@RequestBody List<String> tags) {
         return postService.findPostsByTags(tags);
 
+    }
 
+    @PostMapping("/forum/posts/period")
+    public List<PostDto> findPostsByPeriod(DateDto dateDto) {
+        return postService.findPostsByPeriod(dateDto);
     }
 
 
+    @PutMapping("/forum/post/{id}")
 
-
+    public PostDto updatePost(@PathVariable String id, @RequestBody PostUpdateDto postUpdateDto){
+        return postService.updatePost(id, postUpdateDto);
+    }
 
 
     }

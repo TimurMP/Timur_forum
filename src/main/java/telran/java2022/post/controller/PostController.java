@@ -7,6 +7,8 @@ import telran.java2022.post.dto.PostAddDto;
 import telran.java2022.post.dto.PostDto;
 import telran.java2022.post.service.PostService;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class PostController {
@@ -30,5 +32,12 @@ public class PostController {
     }
 
 
+    @GetMapping("/forum/posts/author/{author}")
+    public List<PostDto> findPostByAuthor(@PathVariable String author) {
+        return  postService.findPostByAuthor(author);
+    }
 
-}
+
+
+
+    }

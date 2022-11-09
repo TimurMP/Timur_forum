@@ -14,6 +14,7 @@ import telran.java2022.post.model.Post;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -51,8 +52,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto findPostByAuthor(String author) {
-        return null;
+    public List <PostDto> findPostByAuthor(String author) {
+        return postRepository.findByAuthorIgnoreCase(author)
+                .map(post -> modelMapper.map(post, PostDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override

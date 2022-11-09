@@ -12,7 +12,7 @@ public interface PostService {
 
 PostDto addPost(PostAddDto postAddDto, String author);
 
-PostDto findPostById(Integer id);
+PostDto findPostById(String id);
 
 void addLike(Integer id);
 

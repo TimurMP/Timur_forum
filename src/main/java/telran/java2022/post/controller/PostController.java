@@ -19,8 +19,8 @@ public class PostController {
     }
 
 
-    @GetMapping("/post/{id}")
-    public PostDto findPostById(@PathVariable Integer id){
+    @GetMapping("/forum/post/{id}")
+    public PostDto findPostById(@PathVariable String id){
         return postService.findPostById(id);
     }
 

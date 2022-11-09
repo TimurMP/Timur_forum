@@ -16,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @Document(collection = "forum")
 
+
+
 public class Post {
     @Id
     String id;

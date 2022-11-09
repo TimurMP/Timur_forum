@@ -9,6 +9,7 @@ import telran.java2022.post.dto.CommentDto;
 import telran.java2022.post.dto.PostAddDto;
 import telran.java2022.post.dto.PostDto;
 import telran.java2022.post.dto.PostUpdateDto;
+import telran.java2022.post.dto.exceptions.PostNotFoundException;
 import telran.java2022.post.model.Post;
 
 import java.time.LocalDateTime;
@@ -37,8 +38,9 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto findPostById(Integer id) {
-        return null;
+    public PostDto findPostById(String id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException(id));
+        return modelMapper.map(post, PostDto.class);
     }
 
     @Override

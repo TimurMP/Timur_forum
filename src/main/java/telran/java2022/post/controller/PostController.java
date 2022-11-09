@@ -13,7 +13,7 @@ public class PostController {
 
     final PostService postService;
 
-    @PostMapping("/post/{author}")
+    @PostMapping("/forum/post/{author}")
     public PostDto addPost(@RequestBody PostAddDto postAddDto, @PathVariable String author){
         return  postService.addPost(postAddDto, author);
     }

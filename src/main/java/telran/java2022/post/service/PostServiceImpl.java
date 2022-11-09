@@ -33,6 +33,7 @@ public class PostServiceImpl implements PostService {
         post.setAuthor(author);
         postRepository.save(post);
         return modelMapper.map(post, PostDto.class);
+
     }
 
     @Override

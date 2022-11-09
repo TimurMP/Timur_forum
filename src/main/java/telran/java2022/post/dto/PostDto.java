@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 
 public class PostDto {
-    int id;
+    String id;
     String title;
     String content;
     String author;

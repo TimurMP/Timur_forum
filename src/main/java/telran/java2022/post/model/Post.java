@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -35,10 +36,12 @@ public class Post {
     List<String> tags;
     @Setter
     Integer likes = 0;
-    List<String> comments;
 
 
-    public Post(String id, String title, String content, String author, LocalDateTime dateCreated, List<String> tags, Integer likes, List<String> comments) {
+    List<Comment> comments = new ArrayList<>();
+
+
+    public Post(String id, String title, String content, String author, LocalDateTime dateCreated, List<String> tags, Integer likes, List<Comment> comments) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -46,11 +49,15 @@ public class Post {
         this.dateCreated = dateCreated;
         this.tags = tags;
 //        this.likes = likes;
-        this.comments = comments;
+//        this.comments = comments;
     }
 
     public void addLike(){
         likes++;
+    }
+
+    public boolean addComment(Comment comment){
+        return comments.add(comment);
     }
 
 }

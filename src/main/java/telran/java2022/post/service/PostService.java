@@ -18,9 +18,9 @@ void addLike(String id);
 
 List <PostDto> findPostByAuthor(String author);
 
-PostDto addComment(CommentDto commentDto);
+PostDto addComment(String id, CommentDto commentDto, String user, String Message);
 
-PostDto deletePost(Integer id);
+PostDto deletePost(String id);
 
 List<PostDto> findPostsByTags(List<String> tags);
 

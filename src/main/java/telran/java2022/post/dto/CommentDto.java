@@ -1,10 +1,9 @@
 package telran.java2022.post.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
@@ -15,4 +14,7 @@ import lombok.NoArgsConstructor;
 public class CommentDto {
 
     String message;
+    String user;
+    LocalDateTime dateCreated = LocalDateTime.now();
+    int likes;
 }

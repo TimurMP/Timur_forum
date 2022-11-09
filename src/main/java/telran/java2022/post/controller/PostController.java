@@ -3,6 +3,7 @@ package telran.java2022.post.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import telran.java2022.post.dto.CommentDto;
 import telran.java2022.post.dto.PostAddDto;
 import telran.java2022.post.dto.PostDto;
 import telran.java2022.post.service.PostService;
@@ -36,6 +37,19 @@ public class PostController {
     public List<PostDto> findPostByAuthor(@PathVariable String author) {
         return  postService.findPostByAuthor(author);
     }
+
+    @PutMapping("/forum/post/{id}/comment/{user}")
+    public PostDto addComment(@PathVariable String id, CommentDto commentDto, @PathVariable String user, @RequestBody String message) {
+        return postService.addComment(id, commentDto, user, message);
+    }
+
+
+    @DeleteMapping("/forum/post/{id}")
+    public PostDto deletePost(@PathVariable String id) {
+
+        return postService.deletePost(id);
+    }
+
 
 
 

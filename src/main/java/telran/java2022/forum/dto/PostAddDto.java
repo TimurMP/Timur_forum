@@ -10,7 +10,7 @@ import java.util.List;
 public class PostAddDto {
     String title;
     String content;
-    List<String> comments;
+    List<String> tags;
 
 
 }

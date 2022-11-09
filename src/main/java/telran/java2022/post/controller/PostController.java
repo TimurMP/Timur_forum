@@ -50,6 +50,14 @@ public class PostController {
         return postService.deletePost(id);
     }
 
+    @PostMapping("/forum/posts/tags")
+    public List<PostDto> findPostsByTags(@RequestBody List<String> tags) {
+        return postService.findPostsByTags(tags);
+
+
+    }
+
+
 
 
 

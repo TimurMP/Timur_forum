@@ -84,7 +84,9 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> findPostsByTags(List<String> tags) {
-        return null;
+        return postRepository.findPostsByTagsIn(tags)
+                .map(post -> modelMapper.map(post, PostDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override

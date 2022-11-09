@@ -44,8 +44,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void addLike(Integer id) {
-
+    public void addLike(String id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException(id));
+        post.addLike();
+        postRepository.save(post);
     }
 
     @Override

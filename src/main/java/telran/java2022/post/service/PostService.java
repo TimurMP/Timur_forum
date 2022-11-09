@@ -14,7 +14,7 @@ PostDto addPost(PostAddDto postAddDto, String author);
 
 PostDto findPostById(String id);
 
-void addLike(Integer id);
+void addLike(String id);
 
 PostDto findPostByAuthor(String author);
 

@@ -33,6 +33,7 @@ public class Post {
     LocalDateTime dateCreated = LocalDateTime.now();
     @Setter
     List<String> tags;
+    @Setter
     Integer likes = 0;
     List<String> comments;
 

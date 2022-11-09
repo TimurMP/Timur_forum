@@ -24,6 +24,11 @@ public class PostController {
         return postService.findPostById(id);
     }
 
+    @PutMapping("/forum/post/{id}/like")
+    public void addLike(@PathVariable String id) {
+        postService.addLike(id);
+    }
+
 
 
 }
